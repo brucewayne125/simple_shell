@@ -5,7 +5,9 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-void execute_command(char *command)
+#define MAX_COMMAND_LENGTH 100
+
+void exec_command(char *command)
 {
 	pid_t pid;
 	int status;
@@ -32,7 +34,7 @@ void execute_command(char *command)
 
 int main()
 {
-	char command[100];
+	char command[MAX_COMMAND_LENGTH];
 	char *line = NULL;
 	size_t line_length = 0;
 	ssize_t read_length;
@@ -58,7 +60,7 @@ int main()
 
 		line[strcspn(line, "\n")] = '\0';
 		strcpy(command, line);
-		execute_command(line);
+		exec_command(command);
 	}
 	free(line);
 	return 0;
