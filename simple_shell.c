@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-void execute_command(char*command)
+void execute_command(char *command)
 {
 	pid_t pid;
 	int status;
