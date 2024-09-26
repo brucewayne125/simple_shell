@@ -1,3 +1,9 @@
+/**
+ * execute - Executes a command in a child process.
+ *
+ * @command: The command to be executed
+ */
+
 #include "shell.h"
 
 void execute(const char *command)
@@ -11,7 +17,7 @@ void execute(const char *command)
 	}
 	else if (ch_pid == 0)
 	{
-		execlp(command, command,(char *) NULL);
+		execlp(command, command, (char *) NULL);
 		perror("execlp");
 		exit(EXIT_FAILURE);
 	}
@@ -19,5 +25,4 @@ void execute(const char *command)
 	{
 		wait(NULL);
 	}
-	
 }
